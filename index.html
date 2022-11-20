@@ -29,6 +29,9 @@
       table,
       td {
         border-collapse: collapse;
+
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
       }
 
       img {
@@ -62,447 +65,443 @@
         }
       </style>
     <![endif]-->
-    <!--[if !mso]><!-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <style type="text/css">
-      @import url(https://fonts.googleapis.com/css?family=Lato:300,400,500,700);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
-    </style>
-    <!--<![endif]-->
+
     <style type="text/css">
       @media only screen and (min-width: 480px) {
-        .mj-column-per-30 {
-          width: 30% !important;
-          max-width: 30%;
+        .mj-column-per-25 {
+          width: 25% !important;
+          max-width: 25%;
         }
 
-        .mj-column-per-70 {
-          width: 70% !important;
-          max-width: 70%;
+        .mj-column-per-75 {
+          width: 75% !important;
+          max-width: 75%;
         }
       }
     </style>
     <style media="screen and (min-width:480px)">
-      .moz-text-html .mj-column-per-30 {
-        width: 30% !important;
-        max-width: 30%;
+      .moz-text-html .mj-column-per-25 {
+        width: 25% !important;
+        max-width: 25%;
       }
 
-      .moz-text-html .mj-column-per-70 {
-        width: 70% !important;
-        max-width: 70%;
+      .moz-text-html .mj-column-per-75 {
+        width: 75% !important;
+        max-width: 75%;
       }
     </style>
-    <style type="text/css">
-      @media only screen and (max-width: 480px) {
-        table.mj-full-width-mobile {
-          width: 100% !important;
-        }
 
-        td.mj-full-width-mobile {
-          width: auto !important;
-        }
-      }
-    </style>
     <style type="text/css">
-      .table-formatting {
+      .table-row {
         display: flex;
+        flex-direction: column;
+        line-height: 19px !important;
       }
 
-      .desktop-show {
-        display: inline !important;
+      .mobile-hide {
+        display: none;
       }
-    </style>
 
-    <style type="text/css">
-      @media (min-width: 1025px) {
-        .table-formatting {
-          display: flex;
+      .table-row-item-second {
+        width: 50px;
+      }
 
-          line-height: 19px !important;
+      @media (min-width: 700px) {
+        .mobile-hide {
+          display: inline-flex !important;
+        }
+
+        .table-row {
+          flex-direction: row;
+          gap: 0rem;
+        }
+
+        .table-row-item-second {
+          width: 45px;
         }
       }
     </style>
-    <style type="text/css">
-      @media (max-width: 650px) {
-        .desktop-show {
-          display: none !important;
-        }
-        .table-formatting {
-          display: flex;
-          flex-direction: column;
-        }
+
+    <!-- Only used for the builder page; so not needed in the email style. -->
+    <style>
+      .preview:hover {
+        opacity: 0.8;
+        cursor: copy;
       }
     </style>
   </head>
 
-  <body style="font-family: sans-serif; word-spacing: normal">
-    <div>
-      <div style="display: block; padding-left: 20px">
-        <h1 class="text" style="line-height: 100%">
-          SovTech Signature Generator
-        </h1>
-        <ol>
-          <li>
-            <span class="text">Fill in the form.</span>
-          </li>
-          <li>
-            <span class="text"
-              >Click this big blue button to copy the signature.</span
-            >
-          </li>
-          <li>
-            <span class="text">
-              Paste the signature in your
-              <a
-                target="_blank"
-                referrerpolicy="no-referrer"
-                href="https://mail.google.com/mail/u/3/#settings/general"
-                >Gmail signature settings.</a
-              >
-            </span>
-          </li>
-        </ol>
-        <button id="copyContentButton" type="button" class="formbold-btn text">
-          Copy
-        </button>
+  <body
+    style="
+      word-spacing: normal;
+      font-family: 'Arial', sans-serif;
+      padding: 20px 50px;
+    "
+  >
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 50px">
+      <div style="flex: 1">
         <div>
-          <span class="text" style="padding-top: 10px">
-            Not copying? Try switching off autosave and autorun.<br />
-            These remove focus from the document and then there is nothing to
-            show.
-          </span>
-        </div>
-      </div>
-      <div
-        style="
-          display: flex;
-          flex-direction: row;
-          gap: 50px;
-          padding-left: 40px;
-        "
-      >
-        <div style="padding-top: 40px">
-          <form autocomplete="on" class="form-grid">
-            <div class="formbold-mb-5">
-              <label class="formbold-form-label text" for="fname"
-                >First name
-              </label>
-              <input
-                class="formbold-form-input"
-                type="text"
-                id="fname"
-                name="fname"
-                placeholder="Matthew"
-              />
-            </div>
-            <div class="formbold-mb-5">
-              <label class="formbold-form-label text" for="lname"
-                >Last name
-              </label>
-              <input
-                class="formbold-form-input"
-                type="text"
-                id="lname"
-                name="lname"
-                autocomplete="family-name"
-                placeholder="Fainman"
-              />
-            </div>
+          <h1 class="text" style="line-height: 100%">
+            SovTech Email Signature Generator
+          </h1>
 
-            <div class="formbold-mb-5">
-              <label for="role" class="formbold-form-label text">Role </label>
-              <input
-                type="text"
-                name="role"
-                id="role"
-                placeholder="Software Developer"
-                class="formbold-form-input"
-                autocomplete="organization-title"
-              />
-            </div>
-
-            <div class="formbold-mb-5">
-              <label class="formbold-form-label text" for="email">Email </label>
-              <input
-                class="formbold-form-input"
-                id="email"
-                type="email"
-                autocomplete="email"
-                name="email"
-                placeholder="matthew.fainman@sovtech.com"
-              />
-            </div>
-
-            <div class="formbold-mb-5">
-              <label for="phone" class="formbold-form-label text">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                placeholder="+27768272599"
-                class="formbold-form-input"
-                autocomplete="tel"
-              />
-            </div>
-
-            <div class="formbold-mb-5">
-              <label for="segment" class="formbold-form-label text"
-                >Segment
-              </label>
-              <input
-                type="text"
-                name="segment"
-                id="segment"
-                placeholder="SovTech Connect"
-                class="formbold-form-input"
-              />
-            </div>
-          </form>
-        </div>
-
-        <div class="preview" style="margin-top: 40px; width: 100%">
-          <div
-            id="main_content"
-            style="font-family: sans-serif; width: 100%; min-width: fit-content"
+          <h3>Instructions</h3>
+          <ol>
+            <li>
+              <span class="text">Fill in the form.</span>
+            </li>
+            <li>
+              <span class="text"
+                >Click this big blue button to copy the signature.</span
+              >
+            </li>
+            <li>
+              <span class="text">
+                Paste the signature in your
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  referrerpolicy="no-referrer"
+                  href="https://mail.google.com/mail/u/3/#settings/general"
+                  >Gmail signature settings.</a
+                >
+              </span>
+            </li>
+          </ol>
+          <button
+            id="copyContentButton"
+            type="button"
+            class="formbold-btn text"
           >
-            <table
-              align="center"
-              border="0"
-              cellpadding="0"
-              cellspacing="0"
-              role="presentation"
-              style="font-family: 'arial', sans-serif; width: 100%"
-              width="100%"
-            >
-              <tbody style="font-family: 'arial', sans-serif">
-                <tr style="font-family: 'arial', sans-serif">
-                  <td style="font-family: 'arial', sans-serif">
-                    <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
-                    <div
-                      style="font-family: arial, sans-serif; margin: 0px auto"
+            Copy
+          </button>
+          <div style="padding-top: 40px">
+            <h3>Troubleshooting</h3>
+            <div class="text">
+              Not copying? You can only paste the content into something which
+              can accept rich text. For example, VSCode doesn't work.
+            </div>
+          </div>
+        </div>
+        <form autocomplete="on" class="form-grid" style="padding-top: 40px">
+          <h3>Your Information</h3>
+          <div class="formbold-mb-5">
+            <label class="formbold-form-label text" for="fname"
+              >First name
+            </label>
+            <input
+              class="formbold-form-input"
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="Matthew"
+            />
+          </div>
+          <div class="formbold-mb-5">
+            <label class="formbold-form-label text" for="lname"
+              >Last name
+            </label>
+            <input
+              class="formbold-form-input"
+              type="text"
+              id="lname"
+              name="lname"
+              autocomplete="family-name"
+              placeholder="Fainman"
+            />
+          </div>
+
+          <div class="formbold-mb-5">
+            <label for="role" class="formbold-form-label text">Role </label>
+            <input
+              type="text"
+              name="role"
+              id="role"
+              placeholder="Software Developer"
+              class="formbold-form-input"
+              autocomplete="organization-title"
+            />
+          </div>
+
+          <div class="formbold-mb-5">
+            <label class="formbold-form-label text" for="email">Email </label>
+            <input
+              class="formbold-form-input"
+              id="email"
+              type="email"
+              autocomplete="email"
+              name="email"
+              placeholder="matthew.fainman@sovtech.com"
+            />
+          </div>
+
+          <div class="formbold-mb-5">
+            <label for="phone" class="formbold-form-label text">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="+27768272599"
+              class="formbold-form-input"
+              autocomplete="tel"
+            />
+          </div>
+
+          <div class="formbold-mb-5">
+            <label for="segment" class="formbold-form-label text"
+              >Segment
+            </label>
+            <input
+              type="text"
+              name="segment"
+              id="segment"
+              placeholder="SovTech Connect"
+              class="formbold-form-input"
+            />
+          </div>
+        </form>
+      </div>
+
+      <div
+        class="preview"
+        id="preview"
+        role="button"
+        style="margin-top: 100px; flex: 1; min-width: 700px"
+      >
+        <div id="main_content" style="width: fit-content; max-width: 600px">
+          <table
+            align="center"
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            role="presentation"
+            style="width: 100%"
+          >
+            <tbody>
+              <tr>
+                <td
+                  style="
+                    direction: ltr;
+                    font-size: 0px;
+                    padding: 0px 0;
+                    text-align: center;
+                  "
+                >
+                  <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:150px;" ><![endif]-->
+                  <div style="font-family: arial, sans-serif; margin: 0px auto">
+                    <table
+                      align="center"
+                      border="0"
+                      cellpadding="0"
+                      cellspacing="0"
+                      role="presentation"
+                      style="font-family: 'arial', sans-serif; width: 100%"
+                      width="100%"
                     >
-                      <table
-                        align="center"
-                        border="0"
-                        cellpadding="0"
-                        cellspacing="0"
-                        role="presentation"
-                        style="font-family: 'arial', sans-serif; width: 100%"
-                        width="100%"
-                      >
-                        <tbody style="font-family: 'arial', sans-serif">
-                          <tr style="font-family: 'arial', sans-serif">
-                            <td
+                      <tbody style="font-family: 'arial', sans-serif">
+                        <tr style="font-family: 'arial', sans-serif">
+                          <td
+                            style="
+                              font-family: 'arial', sans-serif;
+                              direction: ltr;
+                              font-size: 0px;
+                              padding: 20px 0;
+                              text-align: center;
+                              display: flex;
+                            "
+                            align="center"
+                          >
+                            <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:180px;" ><![endif]-->
+                            <div
+                              class="mj-column-per-25 mj-outlook-group-fix"
                               style="
-                                font-family: 'arial', sans-serif;
-                                direction: ltr;
                                 font-size: 0px;
-                                padding: 20px 0;
-                                text-align: center;
-                                display: flex;
+                                text-align: left;
+                                direction: ltr;
+                                display: inline-block;
+                                vertical-align: top;
+                                width: 100%;
+
+                                max-width: fit-content;
                               "
-                              align="center"
                             >
-                              <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:180px;" ><![endif]-->
-                              <div
-                                class="mj-column-per-30 mj-outlook-group-fix"
-                                style="
-                                  font-family: 'arial', sans-serif;
-                                  font-size: 0px;
-                                  text-align: left;
-                                  direction: ltr;
-                                  max-width: fit-content;
-                                  vertical-align: top;
-                                "
+                              <table
+                                border="0"
+                                cellpadding="0"
+                                cellspacing="0"
+                                role="presentation"
+                                style="vertical-align: top"
+                                width="100%"
                               >
-                                <table
-                                  border="0"
-                                  cellpadding="0"
-                                  cellspacing="0"
-                                  role="presentation"
-                                  style="
-                                    font-family: 'arial', sans-serif;
-                                    vertical-align: top;
-                                  "
-                                  valign="top"
-                                >
-                                  <tbody
-                                    style="font-family: 'arial', sans-serif"
-                                  >
-                                    <tr
-                                      style="font-family: 'arial', sans-serif"
+                                <tbody>
+                                  <tr>
+                                    <td
+                                      align="center"
+                                      style="
+                                        font-size: 0px;
+                                        padding: 10px 25px;
+                                        word-break: break-word;
+                                      "
                                     >
-                                      <td
+                                      <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" ><tr><td><![endif]-->
+                                      <table
                                         align="center"
+                                        border="0"
+                                        cellpadding="0"
+                                        cellspacing="0"
+                                        role="presentation"
                                         style="
-                                          font-family: 'arial', sans-serif;
-                                          font-size: 0px;
-                                          padding: 10px 25px;
-                                          word-break: break-word;
+                                          float: none;
+                                          display: inline-table;
                                         "
                                       >
-                                        <table
-                                          border="0"
-                                          cellpadding="0"
-                                          cellspacing="0"
-                                          role="presentation"
-                                          style="
-                                            font-family: 'arial', sans-serif;
-                                            border-collapse: collapse;
-                                            border-spacing: 0px;
-                                          "
-                                        >
+                                        <tr>
                                           <tbody
                                             style="
                                               font-family: 'arial', sans-serif;
                                             "
                                           >
-                                            <tr
+                                            <td
                                               style="
-                                                font-family: 'arial', sans-serif;
+                                                padding: 4px;
+                                                vertical-align: middle;
                                               "
                                             >
-                                              <td
+                                              <table
+                                                border="0"
+                                                cellpadding="0"
+                                                cellspacing="0"
+                                                role="presentation"
                                                 style="
-                                                  font-family: 'arial',
-                                                    sans-serif;
-                                                  width: 100px;
+                                                  border-radius: 3px;
+                                                  width: 100%;
                                                 "
-                                                width="130"
                                               >
-                                                <img
-                                                  height="auto"
-                                                  src="https://sovtech-brand-assets.s3-eu-west-1.amazonaws.com/sovtech-logo.png"
-                                                  style="
-                                                    font-family: 'arial',
-                                                      sans-serif;
-                                                    border: 0;
-                                                    display: block;
-                                                    outline: none;
-                                                    text-decoration: none;
-                                                    height: auto;
-                                                    width: 100%;
-                                                    font-size: 13px;
-                                                  "
-                                                  alt="SovTech Logo"
-                                                  width="130"
-                                                />
-                                              </td>
-                                            </tr>
+                                                <tr>
+                                                  <td
+                                                    style="
+                                                      font-size: 0;
+                                                      height: 100%;
+                                                      vertical-align: middle;
+                                                      width: 100%;
+                                                    "
+                                                  >
+                                                    <a
+                                                      href="https://sovtech.com"
+                                                      target="_blank"
+                                                      rel="noreferrer"
+                                                    >
+                                                      <img
+                                                        height="100"
+                                                        src="https://sovtech-brand-assets.s3-eu-west-1.amazonaws.com/sovtech-logo.png"
+                                                        style="
+                                                          border-radius: 3px;
+                                                          display: block;
+                                                        "
+                                                        width="100"
+                                                      />
+                                                    </a>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                            </td>
                                           </tbody>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                              <!--[if mso | IE]></td><td class="" style="vertical-align:top;width:420px;" ><![endif]-->
-                              <div
-                                class="mj-column-per-70 mj-outlook-group-fix"
-                                style="
-                                  font-family: 'arial', sans-serif;
-                                  font-size: 0px;
-                                  text-align: left;
-                                  direction: ltr;
-                                  display: flex;
-                                  flex-grow: 1;
-                                  flex: 1;
-                                  width: 100%;
-
-                                  vertical-align: top;
-                                "
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!--[if mso | IE]></td><td class="" style="vertical-align:top;width:450px;" ><![endif]-->
+                            <div
+                              class="mj-column-per-75 mj-outlook-group-fix"
+                              style="
+                                font-size: 0px;
+                                text-align: left;
+                                direction: ltr;
+                                display: inline-block;
+                                vertical-align: top;
+                                width: 100%;
+                              "
+                            >
+                              <table
+                                border="0"
+                                cellpadding="0"
+                                cellspacing="0"
+                                role="presentation"
+                                style="vertical-align: top; max-width: 600px"
+                                width="100%"
                               >
-                                <table
-                                  border="0"
-                                  cellpadding="0"
-                                  cellspacing="0"
-                                  role="presentation"
-                                  style="
-                                    font-family: 'arial', sans-serif;
-                                    vertical-align: top;
-                                    width: max-content;
-                                  "
-                                  valign="top"
-                                >
-                                  <tbody
-                                    style="font-family: 'arial', sans-serif"
-                                  >
-                                    <tr
-                                      style="font-family: 'arial', sans-serif"
+                                <tbody>
+                                  <tr>
+                                    <td
+                                      align="center"
+                                      style="
+                                        font-size: 0px;
+                                        padding: 10px 25px;
+                                        padding-bottom: 0px;
+                                        word-break: break-word;
+                                      "
                                     >
-                                      <td
-                                        align="center"
+                                      <p
                                         style="
-                                          font-family: 'arial', sans-serif;
-                                          font-size: 0px;
-                                          padding: 0px 25px;
-                                          padding-bottom: 0px;
-                                          word-break: break-word;
+                                          border-top: solid 4px #1476f2;
+                                          font-size: 1px;
+                                          margin: 0px auto;
+                                          width: 100%;
                                         "
-                                      >
-                                        <p
+                                      ></p>
+                                      <!--[if mso | IE
+                                        ]><table
+                                          align="center"
+                                          border="0"
+                                          cellpadding="0"
+                                          cellspacing="0"
                                           style="
-                                            font-family: 'arial', sans-serif;
                                             border-top: solid 4px #1476f2;
                                             font-size: 1px;
                                             margin: 0px auto;
+                                            width: 400px;
                                           "
-                                        ></p>
-                                        <!--[if mso | IE
-                                          ]><table
-                                            align="center"
-                                            border="0"
-                                            cellpadding="0"
-                                            cellspacing="0"
-                                            style="
-                                              border-top: solid 4px #1476f2;
-                                              font-size: 1px;
-                                              margin: 0px auto;
-                                              width: 370px;
-                                            "
-                                            role="presentation"
-                                            width="370px"
-                                          >
-                                            <tr>
-                                              <td
-                                                style="
-                                                  height: 0;
-                                                  line-height: 0;
-                                                "
-                                              >
-                                                &nbsp;
-                                              </td>
-                                            </tr>
-                                          </table><!
-                                        [endif]-->
-                                      </td>
-                                    </tr>
-                                    <tr
-                                      style="font-family: 'arial', sans-serif"
+                                          role="presentation"
+                                          width="400px"
+                                        >
+                                          <tr>
+                                            <td
+                                              style="height: 0; line-height: 0"
+                                            >
+                                              &nbsp;
+                                            </td>
+                                          </tr>
+                                        </table><!
+                                      [endif]-->
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td
+                                      align="left"
+                                      style="
+                                        font-size: 0px;
+                                        padding: 10px 25px;
+                                        padding-bottom: 0px;
+                                        word-break: break-word;
+                                      "
                                     >
-                                      <td
-                                        align="left"
+                                      <div
                                         style="
-                                          font-family: 'arial', sans-serif;
-                                          font-size: 0px;
-                                          padding: 10px 25px;
-                                          padding-bottom: 0px;
-                                          word-break: break-word;
+                                          font-family: 'Arial', sans-serif;
+                                          font-size: 16px;
+                                          font-weight: bold;
+                                          line-height: 1;
+                                          text-align: left;
+                                          color: #000000;
                                         "
                                       >
-                                        <div
+                                        <span id="fname_clean">Name</span>
+                                        <span
                                           style="
                                             font-family: arial;
                                             font-size: 16px;
@@ -511,288 +510,168 @@
                                             text-align: left;
                                             color: #000000;
                                           "
-                                        >
-                                          <span id="fname_clean">Name </span>
-                                          <span
-                                            style="
-                                              font-family: arial;
-                                              font-size: 16px;
-                                              font-weight: bold;
-                                              line-height: 1;
-                                              text-align: left;
-                                              color: #000000;
-                                            "
-                                            id="lname_clean"
-                                          ></span>
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    <tr
-                                      style="font-family: 'arial', sans-serif"
+                                          id="lname_clean"
+                                        ></span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td
+                                      align="left"
+                                      style="
+                                        font-size: 0px;
+                                        padding: 10px 25px;
+                                        padding-top: 2px;
+                                        word-break: break-word;
+                                      "
                                     >
-                                      <td
-                                        align="left"
+                                      <div
+                                        id="role_clean"
                                         style="
-                                          font-family: 'arial', sans-serif;
-                                          font-size: 0px;
-                                          padding: 10px 25px;
-                                          padding-top: 2px;
-                                          word-break: break-word;
+                                          font-family: 'Arial', sans-serif;
+                                          font-size: 14px;
+                                          line-height: 1;
+                                          text-align: left;
+                                          color: #000000;
                                         "
                                       >
-                                        <div
-                                          id="role_clean"
-                                          style="
-                                            font-family: arial;
-                                            font-size: 14px;
-                                            line-height: 1;
-                                            text-align: left;
-                                            color: #000000;
-                                          "
-                                        >
-                                          Role/Title
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    <tr
-                                      style="font-family: 'arial', sans-serif"
+                                        Role / Title
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td
+                                      align="left"
+                                      style="
+                                        font-size: 0px;
+                                        padding: 10px 25px;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                        word-break: break-word;
+                                      "
                                     >
-                                      <td
-                                        align="left"
+                                      <div
+                                        id="segment_clean"
                                         style="
-                                          font-family: 'arial', sans-serif;
-                                          font-size: 0px;
-                                          padding: 10px 25px;
-                                          padding-top: 2px;
-                                          padding-bottom: 2px;
-                                          word-break: break-word;
+                                          font-family: 'Arial', sans-serif;
+                                          font-size: 14px;
+                                          line-height: 1;
+                                          text-align: left;
+                                          color: #000000;
                                         "
                                       >
-                                        <div
-                                          id="segment_clean"
-                                          style="
-                                            font-family: arial;
-                                            font-size: 14px;
-                                            line-height: 1;
-                                            text-align: left;
-                                            color: #000000;
-                                          "
-                                        >
-                                          Segment
-                                        </div>
-                                      </td>
-                                    </tr>
-                                    <tr
-                                      style="font-family: 'arial', sans-serif"
+                                        Segment
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td
+                                      align="left"
+                                      class="table"
+                                      style="
+                                        font-size: 0px;
+                                        padding: 10px 25px;
+                                        word-break: break-word;
+                                        width: fit-content;
+                                      "
                                     >
-                                      <td
-                                        align="left"
+                                      <table
+                                        cellpadding="0"
+                                        cellspacing="0"
+                                        width="100%"
+                                        border="0"
                                         style="
-                                          font-family: 'arial', sans-serif;
-                                          font-size: 0px;
-                                          padding: 10px 25px;
-                                          padding-top: 5px;
-                                          padding-bottom: 0px;
-                                          word-break: break-word;
+                                          color: #000000;
+                                          font-family: 'Arial', sans-serif;
+                                          font-size: 13px;
+                                          line-height: 22px;
+                                          table-layout: fixed;
+                                          width: 100%;
+                                          border: none;
                                         "
                                       >
-                                        <table
-                                          cellpadding="0"
-                                          cellspacing="0"
-                                          width="100%"
-                                          border="0"
-                                          style="
-                                            color: #000000;
-                                            font-family: arial, Helvetica, Arial,
-                                              sans-serif;
-                                            font-size: 13px;
-                                            line-height: 22px;
-                                            table-layout: auto;
-                                            width: 100%;
-                                            border: none;
-                                          "
-                                        >
-                                          <tr
-                                            class="table-formatting"
-                                            style="
-                                              font-family: 'arial', sans-serif;
-                                            "
-                                          >
-                                            <td
-                                              style="
-                                                font-family: 'arial', sans-serif;
-                                                padding: 0px 2px;
-                                              "
-                                            >
-                                              <span
-                                                style="
-                                                  min-width: 40px;
-                                                  display: inline-block;
-                                                "
+                                        <tr style="display: flex">
+                                          <td style="padding: 0px 0px">
+                                            <div style="display: inline-flex">
+                                              <span style="width: 50px"
+                                                >Mobile:</span
                                               >
-                                                Mobile:
-                                              </span>
-                                              <span
+                                              <a
+                                                id="phone_clean"
+                                                rel="noreferrer"
+                                                href="tel:+27768558137"
+                                                target="_blank"
                                                 style="
-                                                  font-family: 'arial',
-                                                    sans-serif;
-                                                  padding: 0px 2px;
                                                   color: #1476f2;
                                                   text-decoration: underline;
                                                 "
+                                                >+27768558137</a
                                               >
-                                                <a
-                                                  target="_blank"
-                                                  rel="noreferrer"
-                                                  id="phone_clean"
-                                                  href="tel:+27834567339"
-                                                  style="
-                                                    font-family: 'arial',
-                                                      sans-serif;
-                                                  "
-                                                  >+27834567339</a
-                                                >
-                                              </span>
-                                            </td>
-
-                                            <td
-                                              class="desktop-show"
+                                            </div>
+                                            <span
+                                              class="mobile-hide"
                                               style="
-                                                font-family: 'arial', sans-serif;
-
-                                                padding-left: 5px;
-                                                padding-right: 5px;
+                                                text-align: center;
+                                                padding: 0px 10px;
                                               "
+                                              >|</span
                                             >
-                                              |
-                                            </td>
-                                            <td
-                                              style="
-                                                font-family: 'arial', sans-serif;
-                                                padding: 0px 2px;
-                                              "
-                                            >
+                                            <div style="display: inline-flex">
                                               <span
-                                                style="
-                                                  min-width: 40px;
-                                                  display: inline-block;
-                                                "
+                                                class="table-row-item-second"
+                                                >Email:</span
                                               >
-                                                Email:
-                                              </span>
-                                              <span
+                                              <a
+                                                rel="noreferrer"
+                                                id="email_clean"
+                                                href="mailto:you@sovtech.com"
+                                                target="_blank"
                                                 style="
-                                                  font-family: 'arial',
-                                                    sans-serif;
-                                                  padding: 0px 2px;
                                                   color: #1476f2;
                                                   text-decoration: underline;
                                                 "
+                                                >you@sovtech.com</a
                                               >
-                                                <a
-                                                  target="_blank"
-                                                  rel="noreferrer"
-                                                  id="email_clean"
-                                                  href="mailto:you@sovtech.com"
-                                                  style="
-                                                    font-family: 'arial',
-                                                      sans-serif;
-                                                  "
-                                                  >you@sovtech.com</a
-                                                >
-                                              </span>
-                                            </td>
-                                          </tr>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                    <tr
-                                      style="font-family: 'arial', sans-serif"
-                                    >
-                                      <td
-                                        align="left"
-                                        style="
-                                          font-family: 'arial', sans-serif;
-                                          font-size: 0px;
-                                          padding: 10px 25px;
-                                          padding-top: 0px;
-                                          word-break: break-word;
-                                        "
-                                      >
-                                        <table
-                                          cellpadding="0"
-                                          cellspacing="0"
-                                          width="100%"
-                                          border="0"
-                                          style="
-                                            color: #000000;
-                                            font-family: arial, Helvetica, Arial,
-                                              sans-serif;
-                                            font-size: 13px;
-                                            line-height: 22px;
-                                            table-layout: auto;
-                                            width: 100%;
-                                            border: none;
-                                          "
-                                        >
-                                          <tr
-                                            class="table-formatting"
-                                            style="
-                                              font-family: 'arial', sans-serif;
-                                            "
-                                          >
-                                            <td
-                                              style="
-                                                font-family: 'arial', sans-serif;
-                                                padding: 0px 2px;
-                                              "
-                                            >
-                                              <span
-                                                style="
-                                                  min-width: 40px;
-                                                  display: inline-block;
-                                                "
+                                            </div>
+                                          </td>
+                                        </tr>
+                                        <tr style="display: flex">
+                                          <td style="padding: 0px 0px">
+                                            <div style="display: inline-flex">
+                                              <span style="width: 50px"
+                                                >Web:</span
                                               >
-                                                Web:
-                                              </span>
-                                              <span
+                                              <a
+                                                id="website_clean"
+                                                rel="noreferrer"
+                                                href="https://sovtech.com"
+                                                target="_blank"
                                                 style="
-                                                  font-family: 'arial',
-                                                    sans-serif;
-                                                  padding: 0px 2px;
                                                   color: #1476f2;
                                                   text-decoration: underline;
                                                 "
+                                                >www.sovtech.com</a
                                               >
-                                                <a
-                                                  href="tel:+27768378597"
-                                                  style="
-                                                    font-family: 'arial',
-                                                      sans-serif;
-                                                  "
-                                                  >www.sovtech.com</a
-                                                >
-                                              </span>
-                                            </td>
-                                          </tr>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                              <!--[if mso | IE]></td></tr></table><![endif]-->
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <!--[if mso | IE]></td></tr></table><![endif]-->
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!--[if mso | IE]></td></tr></table><![endif]-->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!--[if mso | IE]></td></tr></table><![endif]-->
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -862,59 +741,44 @@
         }, 2000);
       }
     </script>
+
     <script>
       const templateStart = `
       <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
       <head>
-       <style type="text/css">
-          #outlook a {
-            padding: 0;
-          }
+        <style type="text/css">
+    #outlook a {
+      padding: 0;
+    }
 
-          body {
-            margin: 0;
-            padding: 0;
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-          }
+    body {
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
 
-          table,
-          td {
-            border-collapse: collapse;
-            mso-table-lspace: 0pt;
-            mso-table-rspace: 0pt;
-          }
+    table,
+    td {
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
 
-          img {
-            border: 0;
-            height: auto;
-            line-height: 100%;
-            outline: none;
-            text-decoration: none;
-            -ms-interpolation-mode: bicubic;
-          }
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
 
-          p {
-            display: block;
-            margin: 13px 0;
-          }
-        </style>
-        <!--[if mso]>
-              <noscript>
-              <xml>
-              <o:OfficeDocumentSettings>
-                <o:AllowPNG/>
-                <o:PixelsPerInch>96</o:PixelsPerInch>
-              </o:OfficeDocumentSettings>
-              </xml>
-              </noscript>
-              <![endif]-->
-        <!--[if lte mso 11]>
-              <style type="text/css">
-                .mj-outlook-group-fix { width:100% !important; }
-              </style>
-              <![endif]-->
-        <!--[if !mso]><!-->
+    p {
+      display: block;
+      margin: 13px 0;
+    }
+  </style>
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
         <style type="text/css">
@@ -991,15 +855,67 @@
         }
       }
     </style>
+    <style type="text/css">
+    @media only screen and (min-width:480px) {
+      .mj-column-per-25 {
+        width: 25% !important;
+        max-width: 25%;
+      }
+
+      .mj-column-per-75 {
+        width: 75% !important;
+        max-width: 75%;
+      }
+    }
+  </style>
+  <style media="screen and (min-width:480px)">
+    .moz-text-html .mj-column-per-25 {
+      width: 25% !important;
+      max-width: 25%;
+    }
+
+    .moz-text-html .mj-column-per-75 {
+      width: 75% !important;
+      max-width: 75%;
+    }
+  </style>
+  <style type="text/css">
+      .table-row {
+        display: flex;
+        flex-direction: column;
+        line-height: 19px !important;
+      }
+
+      .mobile-hide {
+        display: none;
+      }
+
+      .table-row-item-second {
+        width: 50px;
+      }
+
+      @media (min-width: 700px) {
+        .mobile-hide {
+          display: inline-flex !important;
+        }
+
+        .table-row {
+          flex-direction: row;
+          gap: 0rem;
+        }
+
+        .table-row-item-second {
+          width: 45px;
+        }
+      }
+    </style>
       </head>
-      <body style="font-family: 'arial', sans-serif; word-spacing: normal;">
+      <body style="word-spacing:normal;">
       <div>`;
 
       const templateEnd = `</div></body></html>`;
 
-      const copyContentButton = document.getElementById("copyContentButton");
-
-      copyContentButton.addEventListener("click", async () => {
+      async function onCopyHandler() {
         if (typeof navigator.clipboard === "undefined") {
           alert(
             "Sorry! This feature is not yet available in the browser you are using.\n\n" +
@@ -1033,14 +949,31 @@
 
         return await navigator.clipboard.write(data).then(
           function () {
-            return true;
+            exampleContent.style.opacity = "0.4";
+
+            setTimeout(function () {
+              exampleContent.style.opacity = "1";
+            }, 80);
+
+            flash();
           },
           function (err) {
             alert(err.message);
-            return false;
+
             // Fallback in case the copy did not work
           }
         );
+      }
+
+      const copyContentButton = document.getElementById("copyContentButton");
+
+      copyContentButton.addEventListener("click", async () => {
+        return onCopyHandler();
+      });
+
+      const previewArea = document.getElementById("preview");
+      previewArea.addEventListener("click", async () => {
+        return onCopyHandler();
       });
     </script>
   </body>
